@@ -1,0 +1,45 @@
+{
+  "name": "swap_client",
+  "version": "0.1.0",
+  "description": "A client library for communication with swap_api",
+  "engines": {
+    "node": "==14"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "mocha --recursive --exit --timeout 10000",
+    "standardize": "palmito -i '**/tmp/**'",
+    "doc": "jsdoc --destination docs --configure doc/jsdoc.json lib doc/jsdoc_home.md",
+    "doc-server": "http-server docs",
+    "doc-clean": "rm -rf docs"
+  },
+  "author": "Kevin Leptons",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "axios-mock-adapter": "1.21.1",
+    "docdash": "^1.2.0",
+    "http-server": "^14.1.1",
+    "jsdoc": "^3.6.11",
+    "mocha": "10.0.0",
+    "palmito": "0.4.1"
+  },
+  "dependencies": {
+    "@ethersproject/bignumber": "5.6.2",
+    "@ethersproject/providers": "https://github.com/launchzone/ethers.js/releases/download/v5.3.2.2/ethers_providers.tar.gz",
+    "axios": "0.27.2",
+    "bsc_util": "2.3.0",
+    "buffer": "6.0.3",
+    "ethers": "^5.6.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/launchzone/swap_client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/launchzone/swap_client/issues"
+  },
+  "homepage": "https://github.com/launchzone/swap_client#readme"
+}

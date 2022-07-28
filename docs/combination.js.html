@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>combination.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Client.html">Client</a><ul class='methods'><li data-type='method'><a href="Client.html#.create">create</a></li><li data-type='method'><a href="Client.html#getRoutes">getRoutes</a></li></ul></li><li><a href="HttpEndpointError.html">HttpEndpointError</a><ul class='methods'><li data-type='method'><a href="HttpEndpointError.html#.fromAxiosResponse">fromAxiosResponse</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_calculateRouteLiquidity">_calculateRouteLiquidity</a></li><li><a href="global.html#_createEthersProvider">_createEthersProvider</a></li><li><a href="global.html#_evaluateAndSortRoutes">_evaluateAndSortRoutes</a></li><li><a href="global.html#_evaluateRoute">_evaluateRoute</a></li><li><a href="global.html#_evaluateRoutes">_evaluateRoutes</a></li><li><a href="global.html#_getIntermediateTokens">_getIntermediateTokens</a></li><li><a href="global.html#_getIntermediateTokensFromSource">_getIntermediateTokensFromSource</a></li><li><a href="global.html#_getIntermediateTokensFromTarget">_getIntermediateTokensFromTarget</a></li><li><a href="global.html#_getStepReserves">_getStepReserves</a></li><li><a href="global.html#_getUniqueAddresses">_getUniqueAddresses</a></li><li><a href="global.html#_isBadRoute">_isBadRoute</a></li><li><a href="global.html#_isFakeRouteStep">_isFakeRouteStep</a></li><li><a href="global.html#_isLinkedRoute">_isLinkedRoute</a></li><li><a href="global.html#_isSuccessfulStatus">_isSuccessfulStatus</a></li><li><a href="global.html#_makeMissingSteps">_makeMissingSteps</a></li><li><a href="global.html#_makeMissingStepsManyToMany">_makeMissingStepsManyToMany</a></li><li><a href="global.html#_makeMissingStepsManyToOne">_makeMissingStepsManyToOne</a></li><li><a href="global.html#_makeMissingStepsOneToMany">_makeMissingStepsOneToMany</a></li><li><a href="global.html#_makeMissingStepsOnExchanges">_makeMissingStepsOnExchanges</a></li><li><a href="global.html#_makeRouteAb">_makeRouteAb</a></li><li><a href="global.html#_makeRouteIdentity">_makeRouteIdentity</a></li><li><a href="global.html#_makeRoutes">_makeRoutes</a></li><li><a href="global.html#_makeRoutesAxb">_makeRoutesAxb</a></li><li><a href="global.html#_makeRoutesAxyb">_makeRoutesAxyb</a></li><li><a href="global.html#_makeRoutesAyb">_makeRoutesAyb</a></li><li><a href="global.html#_makeRouteStepsFromReserves">_makeRouteStepsFromReserves</a></li><li><a href="global.html#_mergeRoutesLists">_mergeRoutesLists</a></li><li><a href="global.html#_removeBadRoutes">_removeBadRoutes</a></li><li><a href="global.html#_removeDuplicatedRoutes">_removeDuplicatedRoutes</a></li><li><a href="global.html#_sortRoutesByLiquidity">_sortRoutesByLiquidity</a></li><li><a href="global.html#_validateLinkedRoute">_validateLinkedRoute</a></li><li><a href="global.html#Formatter">Formatter</a></li><li><a href="global.html#hasEmptyTuple">hasEmptyTuple</a></li><li><a href="global.html#hasNextTupleCombination">hasNextTupleCombination</a></li><li><a href="global.html#makeTupleCombination">makeTupleCombination</a></li><li><a href="global.html#makeTupleCombinationIteration">makeTupleCombinationIteration</a></li><li><a href="global.html#mapArray">mapArray</a></li><li><a href="global.html#mapObject">mapObject</a></li><li><a href="global.html#nextIterationTupleCombination">nextIterationTupleCombination</a></li><li><a href="global.html#nextTupleCombination">nextTupleCombination</a></li><li><a href="global.html#resetIteratorRight">resetIteratorRight</a></li><li><a href="global.html#validateArray">validateArray</a></li><li><a href="global.html#validateAttributes">validateAttributes</a></li><li><a href="global.html#validateFloat">validateFloat</a></li><li><a href="global.html#validateInstance">validateInstance</a></li><li><a href="global.html#validateInstanceMap">validateInstanceMap</a></li><li><a href="global.html#validateInteger">validateInteger</a></li><li><a href="global.html#validateObject">validateObject</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">combination.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>'use strict'
+
+/**
+ * `[0]` is current index of item.
+ * `[1]` is length of tuple.
+ *
+ * @typedef {Array&lt;number, number>} TupleCombinationState
+ */
+
+/**
+ * @typedef {Array&lt;TupleCombinationState>} TupleCombinationIteration
+ */
+
+/**
+ * @template T
+ * @typedef {Array&lt;T>} Tuple
+ */
+
+/**
+ * @template T
+ * @typedef {Array&lt;Tuple&lt;T>>} TupleList
+ */
+
+/**
+ * @template T
+ * @param {TupleList&lt;T>} tupleList
+ * @return {TupleList&lt;T>}
+ * @example
+ * let tuple1 = [1, 2, 3]
+ * let tuple2 = [4, 5]
+ * let tuple3 = [6]
+ * let combinations = makeTupleCombination([tuple1, tuple2, tuple3])
+ * // combinations = [
+ * //   [1, 4, 6]
+ * //   [1, 5, 6]
+ * //   [2, 4, 6]
+ * //   [2, 5, 6]
+ * //   [3, 4, 6]
+ * //   [3, 5, 6]
+ * // ]
+ */
+function makeTupleCombination(tupleList) {
+    if (hasEmptyTuple(tupleList)) {
+        return []
+    }
+    let iteration = makeTupleCombinationIteration(tupleList)
+    let tuples = []
+    for (;;) {
+        let tuple = nextTupleCombination(tupleList, iteration)
+        if (tuple === undefined) {
+            return tuples
+        }
+        tuples.push(tuple)
+    }
+}
+
+/**
+ *
+ * @param {Array&lt;Array>} tupleList
+ * @return {TupleCombinationIteration}
+ */
+function makeTupleCombinationIteration(tupleList) {
+    return tupleList.map(tuple => [0, tuple.length])
+}
+
+/**
+ *
+ * @param {TupleList} tupleList
+ * @return {boolean}
+ */
+function hasEmptyTuple(tupleList) {
+    for (let tuple of tupleList) {
+        if (tuple.length === 0) {
+            return true
+        }
+    }
+    return false
+}
+
+/**
+ * @template T
+ * @param {TupleList&lt;T>} tupleList
+ * @param {TupleCombinationIteration} iteration
+ * @return {Tuple&lt;T>}
+ */
+function nextTupleCombination(tupleList, iteration) {
+    if (!hasNextTupleCombination(iteration)) {
+        return undefined
+    }
+    let tuple = iteration.map(([tupleIndex], listIndex) => {
+        return tupleList[listIndex][tupleIndex]
+    })
+    nextIterationTupleCombination(iteration)
+    return tuple
+}
+
+/**
+ *
+ * @param {TupleCombinationIteration} iteration
+ * @return {boolean}
+ */
+function hasNextTupleCombination(iteration) {
+    if (iteration.length === 0) {
+        return false
+    }
+    let [firstIndex, firstLength] = iteration[0]
+    return (firstIndex &lt; firstLength)
+}
+
+/**
+ *
+ * @param {TupleCombinationIteration} iteration
+ */
+function nextIterationTupleCombination(iteration) {
+    for (let i = iteration.length - 1; i >= 0; --i) {
+        let [index, length] = iteration[i]
+        index = index + 1
+        iteration[i][0] = index
+        if (index &lt; length) {
+            break
+        }
+        else if (index === length &amp;&amp; i > 0) {
+            resetIteratorRight(iteration, i)
+        }
+    }
+}
+
+/**
+ *
+ * @param {TupleCombinationIteration} iteration
+ * @param {number} from
+ */
+function resetIteratorRight(iteration, from) {
+    for (let i = from; i &lt; iteration.length; ++i) {
+        iteration[i][0] = 0
+    }
+}
+
+module.exports = {
+    makeTupleCombination
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Thu Jul 28 2022 17:59:45 GMT+0700 (Indochina Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
