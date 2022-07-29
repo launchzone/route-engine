@@ -4,5 +4,6 @@
 /test/
 /tmp/
 /package-lock.json
+/*.tgz
 *.swp
 *.swo
