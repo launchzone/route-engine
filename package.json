@@ -1,6 +1,6 @@
 {
   "name": "swap_client",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A client library for communication with swap_api",
   "engines": {
     "node": "==14"
@@ -20,9 +20,9 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "axios-mock-adapter": "1.21.1",
-    "docdash": "^1.2.0",
-    "http-server": "^14.1.1",
-    "jsdoc": "^3.6.11",
+    "docdash": "1.2.0",
+    "http-server": "14.1.1",
+    "jsdoc": "3.6.11",
     "mocha": "10.0.0",
     "palmito": "0.4.1"
   },
@@ -32,7 +32,7 @@
     "axios": "0.27.2",
     "bsc_util": "2.3.0",
     "buffer": "6.0.3",
-    "ethers": "^5.6.9"
+    "ethers": "5.6.9"
   },
   "repository": {
     "type": "git",
