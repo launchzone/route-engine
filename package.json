@@ -1,6 +1,6 @@
 {
   "name": "swap_client",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A client library for communication with swap_api",
   "engines": {
     "node": "==14"
@@ -17,7 +17,7 @@
     "doc-clean": "rm -rf docs"
   },
   "author": "Kevin Leptons",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "devDependencies": {
     "axios-mock-adapter": "1.21.1",
     "docdash": "1.2.0",
