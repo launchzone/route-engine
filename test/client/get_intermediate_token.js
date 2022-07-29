@@ -61,12 +61,12 @@ describe('Client._getIntermediateTokens', () => {
         let actualResult = _getIntermediateTokens(poolMap, source, target)
         let expectedResult = {
             x: [
-                Address.fromHeximal('0x8a7d5ca4e949cfc56234e1513a9c7fb820c515e5'),
-                Address.fromHeximal('0xc7cbc71d01697b5c51748e2d19f05b6ebfbcf656')
+                Address.fromHeximal('0xc7cbc71d01697b5c51748e2d19f05b6ebfbcf656'),
+                Address.fromHeximal('0x8a7d5ca4e949cfc56234e1513a9c7fb820c515e5')
             ],
             y: [
-                Address.fromHeximal('0xb9354dd43e4df37cda6bd336494bcd1104b64223'),
-                Address.fromHeximal('0x48ceb31694aebe366d8f2ce9b1e9044619d25e3d')
+                Address.fromHeximal('0x48ceb31694aebe366d8f2ce9b1e9044619d25e3d'),
+                Address.fromHeximal('0xb9354dd43e4df37cda6bd336494bcd1104b64223')
             ]
         }
         assert.deepStrictEqual(actualResult, expectedResult)

@@ -123,5 +123,6 @@ describe('Client.getRoutes', () => {
             targetTokenQuantity: 2
         })
         assert.strictEqual(routes instanceof Array, true)
+        assert.strictEqual(routes.length, 5)
     })
 })
