@@ -31,7 +31,7 @@ main().catch(console.error)
 
 # API References
 
-See [API References](./api.md).
+See [API References](https://launchzone.github.io/swap_client/).
 
 # Development
 

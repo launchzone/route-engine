@@ -4,14 +4,14 @@
 /* eslint-disable max-lines-per-function */
 
 const assert = require('assert')
-const {Address, ExchangeName} = require('../../lib')
+const {Address, Exchange} = require('../../lib')
 const {_makeMissingStepsOnExchanges} = require('../../lib/client')
 
 describe('Client._makeMissingStepsOnExchanges', () => {
     it('valid input, return correct result', () => {
         let begin = Address.fromHeximal('0x16b24a1538e374099c0c99a612d7b35b3526ae78')
         let end = Address.fromHeximal('0xec90e559b61dee9dc54aaf5086a1085e77fe7185')
-        let exchanges = [ExchangeName.PANCAKE, ExchangeName.PANCAKE2]
+        let exchanges = [Exchange.PANCAKE, Exchange.PANCAKE2]
         let actualResult = _makeMissingStepsOnExchanges(begin, end, exchanges)
         let expectedResult = [
             {

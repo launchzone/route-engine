@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Client.html">Client</a><ul class='methods'><li data-type='method'><a href="Client.html#.create">create</a></li><li data-type='method'><a href="Client.html#getRoutes">getRoutes</a></li></ul></li><li><a href="HttpEndpointError.html">HttpEndpointError</a><ul class='methods'><li data-type='method'><a href="HttpEndpointError.html#.fromAxiosResponse">fromAxiosResponse</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_calculateRouteLiquidity">_calculateRouteLiquidity</a></li><li><a href="global.html#_createEthersProvider">_createEthersProvider</a></li><li><a href="global.html#_evaluateAndSortRoutes">_evaluateAndSortRoutes</a></li><li><a href="global.html#_evaluateRoute">_evaluateRoute</a></li><li><a href="global.html#_evaluateRoutes">_evaluateRoutes</a></li><li><a href="global.html#_getIntermediateTokens">_getIntermediateTokens</a></li><li><a href="global.html#_getIntermediateTokensFromSource">_getIntermediateTokensFromSource</a></li><li><a href="global.html#_getIntermediateTokensFromTarget">_getIntermediateTokensFromTarget</a></li><li><a href="global.html#_getStepReserves">_getStepReserves</a></li><li><a href="global.html#_getUniqueAddresses">_getUniqueAddresses</a></li><li><a href="global.html#_isBadRoute">_isBadRoute</a></li><li><a href="global.html#_isFakeRouteStep">_isFakeRouteStep</a></li><li><a href="global.html#_isLinkedRoute">_isLinkedRoute</a></li><li><a href="global.html#_isSuccessfulStatus">_isSuccessfulStatus</a></li><li><a href="global.html#_makeMissingSteps">_makeMissingSteps</a></li><li><a href="global.html#_makeMissingStepsManyToMany">_makeMissingStepsManyToMany</a></li><li><a href="global.html#_makeMissingStepsManyToOne">_makeMissingStepsManyToOne</a></li><li><a href="global.html#_makeMissingStepsOneToMany">_makeMissingStepsOneToMany</a></li><li><a href="global.html#_makeMissingStepsOnExchanges">_makeMissingStepsOnExchanges</a></li><li><a href="global.html#_makeRouteAb">_makeRouteAb</a></li><li><a href="global.html#_makeRouteIdentity">_makeRouteIdentity</a></li><li><a href="global.html#_makeRoutes">_makeRoutes</a></li><li><a href="global.html#_makeRoutesAxb">_makeRoutesAxb</a></li><li><a href="global.html#_makeRoutesAxyb">_makeRoutesAxyb</a></li><li><a href="global.html#_makeRoutesAyb">_makeRoutesAyb</a></li><li><a href="global.html#_makeRouteStepsFromReserves">_makeRouteStepsFromReserves</a></li><li><a href="global.html#_mergeRoutesLists">_mergeRoutesLists</a></li><li><a href="global.html#_removeBadRoutes">_removeBadRoutes</a></li><li><a href="global.html#_removeDuplicatedRoutes">_removeDuplicatedRoutes</a></li><li><a href="global.html#_sortRoutesByLiquidity">_sortRoutesByLiquidity</a></li><li><a href="global.html#_validateLinkedRoute">_validateLinkedRoute</a></li><li><a href="global.html#Formatter">Formatter</a></li><li><a href="global.html#hasEmptyTuple">hasEmptyTuple</a></li><li><a href="global.html#hasNextTupleCombination">hasNextTupleCombination</a></li><li><a href="global.html#makeTupleCombination">makeTupleCombination</a></li><li><a href="global.html#makeTupleCombinationIteration">makeTupleCombinationIteration</a></li><li><a href="global.html#mapArray">mapArray</a></li><li><a href="global.html#mapObject">mapObject</a></li><li><a href="global.html#nextIterationTupleCombination">nextIterationTupleCombination</a></li><li><a href="global.html#nextTupleCombination">nextTupleCombination</a></li><li><a href="global.html#resetIteratorRight">resetIteratorRight</a></li><li><a href="global.html#validateArray">validateArray</a></li><li><a href="global.html#validateAttributes">validateAttributes</a></li><li><a href="global.html#validateFloat">validateFloat</a></li><li><a href="global.html#validateInstance">validateInstance</a></li><li><a href="global.html#validateInstanceMap">validateInstanceMap</a></li><li><a href="global.html#validateInteger">validateInteger</a></li><li><a href="global.html#validateObject">validateObject</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BscEndpointError.html">BscEndpointError</a></li><li><a href="Client.html">Client</a><ul class='methods'><li data-type='method'><a href="Client.html#.create">create</a></li><li data-type='method'><a href="Client.html#getRoutes">getRoutes</a></li></ul></li><li><a href="Heximal.html">Heximal</a><ul class='methods'><li data-type='method'><a href="Heximal.html#.validate">validate</a></li></ul></li><li><a href="HttpEndpointError.html">HttpEndpointError</a><ul class='methods'><li data-type='method'><a href="HttpEndpointError.html#.fromAxiosResponse">fromAxiosResponse</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#ALL_EXCHANGES">ALL_EXCHANGES</a></li><li><a href="global.html#BSC_ENDPOINT_DEFAULT">BSC_ENDPOINT_DEFAULT</a></li><li><a href="global.html#CONTRACT_HELPER_DEFAULT">CONTRACT_HELPER_DEFAULT</a></li><li><a href="global.html#Exchange">Exchange</a></li><li><a href="global.html#SWAP_ENDPOINT_DEFAULT">SWAP_ENDPOINT_DEFAULT</a></li></ul>
 </nav>
 
 <div id="main">
@@ -49,9 +49,15 @@
 const crypto = require('crypto')
 const {
     getExchangeAddress,
-    getPoolAddress,
-    ExchangeName
+    getPoolAddress
 } = require('bsc_util')
+const {HttpEndpointError, BscEndpointError} = require('./error')
+const {
+    SWAP_ENDPOINT_DEFAULT,
+    BSC_ENDPOINT_DEFAULT,
+    CONTRACT_HELPER_DEFAULT
+} = require('./constant')
+const {Exchange} = require('./exchange')
 const {ClientConfiguration} = require('./client_configuration')
 const {
     SwapService, GetPoolsByTopTokenReserveResult
@@ -69,17 +75,21 @@ const {BigNumber} = require('./bignumber')
 const {BigFractionNumber} = require('./big_fraction_number')
 const {Heximal} = require('./heximal')
 
+/**
+ * List of all exchanges.
+ *
+ * @constant {string}
+ */
 const ALL_EXCHANGES = [
-    ExchangeName.PANCAKE,
-    ExchangeName.PANCAKE2,
-    ExchangeName.BAKERY,
-    ExchangeName.JUL,
-    ExchangeName.APE,
-    ExchangeName.BI,
-    ExchangeName.MDEX,
-    ExchangeName.CAFE,
-    ExchangeName.JET,
-    ExchangeName.BABY
+    Exchange.PANCAKE,
+    Exchange.PANCAKE2,
+    Exchange.JUL,
+    Exchange.APE,
+    Exchange.BI,
+    Exchange.MDEX,
+    Exchange.CAFE,
+    Exchange.JET,
+    Exchange.BABY
 ]
 const LAST_ETH_ADDRESS = Address.fromHeximal(
     '0xffffffffffffffffffffffffffffffffffffffff'
@@ -87,14 +97,14 @@ const LAST_ETH_ADDRESS = Address.fromHeximal(
 
 /**
  * @typedef {object} GetRoutesWeakOptions
- * @property {number} [limit] - Quantity of returned routes at maximum.
- * @property {number} [sourceTokenQuantity] - Quantity of intermediate tokens
- * from source token. It must be less than or equal 16.
- * @property {number} [targetTokenQuantity] - Quantity of intermediate tokens
- * to target token. It must be less than or euqal 16.
- * @property {number} [weight] - ?, in range [0, 1].
- * @property {Array&lt;ExchangeName>} exchanges - Routes go through these
- * exchanges.
+ * @property {number} [limit = 1] - Quantity of returned routes at maximum.
+ * @property {number} [sourceTokenQuantity = 1] - Quantity of intermediate
+ * tokens from source token. It must be less than or equal 16.
+ * @property {number} [targetTokenQuantity = 1] - Quantity of intermediate
+ * tokens to target token. It must be less than or euqal 16.
+ * @property {number} [weight = 1.0] - ?, in range [0, 1].
+ * @property {Array&lt;Exchange>} [exchanges = ALL_EXCHANGES] - Routes go
+ * through these exchanges.
  */
 
 /**
@@ -171,7 +181,7 @@ class GetRoutesOptions {
      * @param {number} data.sourceTokenQuantity
      * @param {number} data.targetTokenQuantity
      * @param {number} data.weight
-     * @param {Array&lt;ExchangeName>} data.exchanges
+     * @param {Array&lt;Exchange>} data.exchanges
      */
     constructor(data) {
         this.limit = data.limit
@@ -231,9 +241,12 @@ class Client {
     /**
      *
      * @param {object} options
-     * @param {string} [options.swapEndpoint]
-     * @param {string} [options.bscEndpoint]
-     * @param {string} [options.contractHelper]
+     * @param {string} [options.swapEndpoint = SWAP_ENDPOINT_DEFAULT] -
+     * The endpoint of service `swap_api`.
+     * @param {string} [options.bscEndpoint = BSC_ENDPOINT_DEFAULT] -
+     * The endpoint of Binance Smart Chain network.
+     * @param {string} [options.contractHelper = CONTRACT_HELPER_DEFAULT] -
+     * The contract for fetching pool's reserves.
      * @return {Client}
      * @throws {TypeError}
      */
@@ -254,11 +267,11 @@ class Client {
 
     /**
      *
-     * @param {Heximal} source
-     * @param {Heximal} target
+     * @param {Heximal} source - Search routes from this token.
+     * @param {Heximal} target - Search routes to this token.
      * @param {GetRoutesWeakOptions} options
      * @return {Promise&lt;Array&lt;Route>>}
-     * @throws {Error}
+     * @throws {Error | HttpEndpointError | BscEndpointError}
      */
     async getRoutes(source, target, options = {}) {
         let inputData = {source, target, options}
@@ -287,7 +300,7 @@ class Client {
      * @param {GetPoolsByTopTokenReserveResult} poolMap
      * @param {Address} source
      * @param {Address} target
-     * @param {Array&lt;ExchangeName>} exchanges
+     * @param {Array&lt;Exchange>} exchanges
      * @return {Promise&lt;AllRouteSteps>}
      */
     async _loadSteps(poolMap, source, target, exchanges) {
@@ -333,7 +346,7 @@ class Client {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;MissingStep>} missingSteps
  * @param {ContractHelperPoolMap} poolMap
  * @return {Array&lt;RouteStep>}
@@ -362,7 +375,7 @@ function _makeRouteStepsFromReserves(missingSteps, poolMap) {
 }
 
 /**
- *
+ * @private
  * @param {Address} begin
  * @param {Address} end
  * @param {ContractHelperPool} pool
@@ -378,7 +391,7 @@ function _getStepReserves(begin, end, pool) {
 }
 
 /**
- *
+ * @private
  * @param {GetPoolsByTopTokenReserveResult} poolMap
  * @param {Address} source
  * @param {Address} target
@@ -391,7 +404,7 @@ function _getIntermediateTokens(poolMap, source, target) {
 }
 
 /**
- *
+ * @private
  * @param {GetPoolsByTopTokenReserveResult} poolMap
  * @param {Address} source
  * @return {Array&lt;Address>}
@@ -417,7 +430,7 @@ function _getIntermediateTokensFromSource(poolMap, source) {
 }
 
 /**
- *
+ * @private
  * @param {GetPoolsByTopTokenReserveResult} poolMap
  * @param {Address} target
  * @return {Array&lt;Address>}
@@ -443,7 +456,7 @@ function _getIntermediateTokensFromTarget(poolMap, target) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;Address>} addresses
  * @return {Array&lt;Address>}
  */
@@ -454,12 +467,12 @@ function _getUniqueAddresses(addresses) {
 }
 
 /**
- *
+ * @private
  * @param {Address} a
  * @param {Address} b
  * @param {Array&lt;Address>} x
  * @param {Array&lt;Address>} y
- * @param {Array&lt;ExchangeName>} exchanges
+ * @param {Array&lt;Exchange>} exchanges
  * @return {AllMissingSteps}
  */
 function _makeMissingSteps(a, b, x, y, exchanges) {
@@ -474,10 +487,10 @@ function _makeMissingSteps(a, b, x, y, exchanges) {
 }
 
 /**
- *
+ * @private
  * @param {Address} begin
  * @param {Array&lt;Address>} endList
- * @param {Array&lt;ExchangeName>} exchanges
+ * @param {Array&lt;Exchange>} exchanges
  * @return {Array&lt;MissingStep>}
  */
 function _makeMissingStepsOneToMany(begin, endList, exchanges) {
@@ -489,10 +502,10 @@ function _makeMissingStepsOneToMany(begin, endList, exchanges) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;Address>} beginList
  * @param {Address} end
- * @param {Array&lt;ExchangeName>} exchanges
+ * @param {Array&lt;Exchange>} exchanges
  * @return {Array&lt;MissingStep>}
  */
 function _makeMissingStepsManyToOne(beginList, end, exchanges) {
@@ -504,10 +517,10 @@ function _makeMissingStepsManyToOne(beginList, end, exchanges) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;Address>} beginList
  * @param {Array&lt;Address>} endList
- * @param {Array&lt;ExchangeName>} exchanges
+ * @param {Array&lt;Exchange>} exchanges
  * @return {Array&lt;MissingStep>}
  */
 function _makeMissingStepsManyToMany(beginList, endList, exchanges) {
@@ -522,10 +535,10 @@ function _makeMissingStepsManyToMany(beginList, endList, exchanges) {
 }
 
 /**
- *
+ * @private
  * @param {Address} begin
  * @param {Address} end
- * @param {Array&lt;ExchangeName>} exchanges
+ * @param {Array&lt;Exchange>} exchanges
  * @return {Array&lt;MissingStep>}
  */
 function _makeMissingStepsOnExchanges(begin, end, exchanges) {
@@ -547,7 +560,7 @@ function _makeMissingStepsOnExchanges(begin, end, exchanges) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;RouteStep>} ab
  * @param {Array&lt;RouteStep>} ax
  * @param {Array&lt;RouteStep>} ay
@@ -567,7 +580,7 @@ function _makeRoutes(ab, ax, ay, xb, yb, xy) {
 }
 
 /**
- *
+ * @private
  * @param {RouteStep} stepsAb
  * @return {Array&lt;Route>}
  */
@@ -576,7 +589,7 @@ function _makeRouteAb(stepsAb) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;RouteStep>} stepsAx
  * @param {Array&lt;RouteStep>} stepsXb
  * @return {Array&lt;Route>}
@@ -587,7 +600,7 @@ function _makeRoutesAxb(stepsAx, stepsXb) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;RouteStep>} stepsAy
  * @param {Array&lt;RouteStep>} stepsYb
  * @return {Array&lt;Route>}
@@ -598,7 +611,7 @@ function _makeRoutesAyb(stepsAy, stepsYb) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;RouteStep>} stepsAx
  * @param {Array&lt;RouteStep>} stepsXy
  * @param {Array&lt;RouteStep>} stepsYb
@@ -610,7 +623,7 @@ function _makeRoutesAxyb(stepsAx, stepsXy, stepsYb) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;Route>} routes
  * @return {Array&lt;Route>}
  */
@@ -623,6 +636,7 @@ function _removeBadRoutes(routes) {
 /**
  * A bad route has at least a duplicated step.
  *
+ * @private
  * @param {Route} route
  * @return {boolean}
  */
@@ -633,7 +647,7 @@ function _isBadRoute(route) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;Route>} routes
  * @return {Array&lt;Route>}
  */
@@ -653,7 +667,7 @@ function _removeDuplicatedRoutes(routes) {
 }
 
 /**
- *
+ * @private
  * @param {Route} route
  * @return {Heximal} 32 bytes.
  */
@@ -672,7 +686,7 @@ function _makeRouteIdentity(route) {
 }
 
 /**
- *
+ * @private
  * @param {Route} route
  * @return {boolean}
  */
@@ -691,7 +705,7 @@ function _isLinkedRoute(route) {
 }
 
 /**
- *
+ * @private
  * @param {...Array&lt;Route>} routesList
  * @return {Array&lt;Route>}
  */
@@ -711,7 +725,7 @@ function _mergeRoutesLists(...routesList) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;Route>} routes
  * @param {number} weight
  * @return {Array&lt;EvaluatedRoute>}
@@ -722,7 +736,7 @@ function _evaluateAndSortRoutes(routes, weight) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;Route>} routes
  * @return {Array&lt;EvaluatedRoute>}
  */
@@ -731,7 +745,7 @@ function _evaluateRoutes(routes) {
 }
 
 /**
- *
+ * @private
  * @param {Route} route
  * @return {EvaluatedRoute}
  * @throws {TypeError}
@@ -749,7 +763,7 @@ function _evaluateRoute(route) {
 }
 
 /**
- *
+ * @private
  * @param {Route} route
  * @return {undefined | string}
  * @throws {Error}
@@ -761,7 +775,7 @@ function _validateLinkedRoute(route) {
 }
 
 /**
- *
+ * @private
  * @param {Route} route
  * @return {BigFractionNumber}
  */
@@ -788,7 +802,7 @@ function _calculateRouteLiquidity(route) {
 }
 
 /**
- *
+ * @private
  * @param {RouteStep} step
  * @return {boolean}
  */
@@ -798,7 +812,7 @@ function _isFakeRouteStep(step) {
 }
 
 /**
- *
+ * @private
  * @param {Array&lt;EvaluatedRoute>} routes
  * @param {number} weight
  * @return {Array&lt;EvaluatedRoute>}
@@ -828,8 +842,11 @@ function _sortRoutesByLiquidity(routes, weight) {
 }
 
 module.exports = {
+    SWAP_ENDPOINT_DEFAULT,
+    BSC_ENDPOINT_DEFAULT,
+    CONTRACT_HELPER_DEFAULT,
     Client,
-    ExchangeName,
+    Exchange,
     _getIntermediateTokens,
     _makeMissingStepsOnExchanges,
     _makeMissingSteps
@@ -848,7 +865,7 @@ module.exports = {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Thu Jul 28 2022 17:59:45 GMT+0700 (Indochina Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Fri Jul 29 2022 09:24:10 GMT+0700 (Indochina Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -1,6 +1,6 @@
 {
   "name": "swap_client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A client library for communication with swap_api",
   "engines": {
     "node": "==14"
@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "test": "mocha --recursive --exit --timeout 10000",
-    "standardize": "palmito -i '**/tmp/**'",
+    "standardize": "palmito -i '**/tmp/**' -i '**/docs/**'",
     "doc": "jsdoc --destination docs --configure doc/jsdoc.json lib doc/jsdoc_home.md",
     "doc-server": "http-server docs",
     "doc-clean": "rm -rf docs"

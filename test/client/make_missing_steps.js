@@ -4,7 +4,7 @@
 /* eslint-disable max-lines-per-function */
 
 const assert = require('assert')
-const {Address, ExchangeName} = require('../../lib')
+const {Address, Exchange} = require('../../lib')
 const {_makeMissingSteps} = require('../../lib/client')
 
 describe('Client._makeMissingSteps', () => {
@@ -18,7 +18,7 @@ describe('Client._makeMissingSteps', () => {
         let y = [
             Address.fromHeximal('0x6016379e33140280c9f1fa9c47fcfeaa3b94a5e9')
         ]
-        let exchanges = [ExchangeName.PANCAKE, ExchangeName.PANCAKE2]
+        let exchanges = [Exchange.PANCAKE, Exchange.PANCAKE2]
         let actualResult = _makeMissingSteps(a, b, x, y, exchanges)
         let expectedResult = {
             sAb: [
