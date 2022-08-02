@@ -4,3 +4,5 @@
 /*.tgz
 *.swp
 *.swo
+.DS_Store
+dist
